@@ -5,4 +5,5 @@
     <string name="action_settings">Settings</string>
 
     <color name="colorMain">#033f39</color>
+    <string name="title_activity_main_menu">MainMenu</string>
 </resources>

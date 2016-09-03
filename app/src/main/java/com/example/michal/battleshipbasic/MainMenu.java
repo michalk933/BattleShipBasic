@@ -1,46 +1,27 @@
 package com.example.michal.battleshipbasic;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 
-public class MainActivity extends Activity {
-
-
+public class MainMenu extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        pause();
-
+        setContentView(R.layout.activity_main_menu);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_main_menu, menu);
         return true;
-    }
-
-
-    public void pause(){
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                //Toast.makeText(getApplicationContext(),"Ale luja",Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(),MainMenu.class);
-                startActivity(intent);
-            }
-        }, 3000);
-
     }
 
     @Override
@@ -56,5 +37,28 @@ public class MainActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void clickMenu(View view) {
+        switch (view.getId()){
+            case R.id.oneUser:
+                Toast.makeText(getApplicationContext(),"Jeden gracz",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.twoUser:
+                Toast.makeText(getApplicationContext(),"dwoch graczy",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.newUse:
+                Toast.makeText(getApplicationContext(),"nowyGracz",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.statistic:
+                Toast.makeText(getApplicationContext(),"Statystyki",Toast.LENGTH_SHORT).show();
+                break;
+
+
+
+
+        }
+
+
     }
 }

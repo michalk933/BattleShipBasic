@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.michal.battleshipbasic.MainMenu"
+    android:background="@color/colorMain">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/namegame"
+        android:id="@+id/nameGame"
+        android:layout_centerHorizontal="true"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/oneuser"
+        android:background="@color/colorMain"
+        android:id="@+id/oneUser"
+        android:layout_below="@+id/nameGame"
+        android:onClick="clickMenu"
+        />
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/dwousers"
+        android:background="@color/colorMain"
+        android:id="@+id/twoUser"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/nameGame"
+        android:onClick="clickMenu"/>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/newuser"
+        android:layout_below="@+id/twoUser"
+        android:background="@color/colorMain"
+        android:id="@+id/newUse"
+        android:onClick="clickMenu"/>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/statistic"
+        android:id="@+id/statistic"
+        android:layout_below="@+id/twoUser"
+        android:layout_alignParentRight="true"
+        android:background="@color/colorMain"
+        android:onClick="clickMenu"/>
+
+
+
+
+
+
+
+
+
+</RelativeLayout>
