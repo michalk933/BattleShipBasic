@@ -1,6 +1,7 @@
 package com.example.michal.battleshipbasic;
 
 import android.app.Activity;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -21,6 +22,24 @@ public class MainActivity extends Activity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
         /// start ;)
+
+
+
+
+    }
+
+
+    public void pause(){
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        }, 3000);
+
+
+
     }
 
     @Override
