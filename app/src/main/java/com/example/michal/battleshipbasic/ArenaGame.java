@@ -6,9 +6,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 
 public class ArenaGame extends Activity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,17 +42,15 @@ public class ArenaGame extends Activity {
     }
 
     public void clickBorder(View view) {
-        switch (view.getId()){
-            // obs³uga
+        //switch (view.getId()){
 
+        int butonClick = view.getId();
+        String s = String.valueOf(butonClick);
 
+        Toast.makeText(getApplicationContext(),s,Toast.LENGTH_SHORT).show();
+        ImageButton im = (ImageButton)findViewById(R.id.)
 
-
-
-
-
-
-        }
+        //}
 
     }
 }
