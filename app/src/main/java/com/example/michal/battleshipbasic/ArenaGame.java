@@ -1,27 +1,25 @@
 package com.example.michal.battleshipbasic;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 
-public class MainMenu extends Activity {
+public class ArenaGame extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_menu);
+        setContentView(R.layout.activity_arena_game);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main_menu, menu);
+        getMenuInflater().inflate(R.menu.menu_arena_game, menu);
         return true;
     }
 
@@ -40,28 +38,17 @@ public class MainMenu extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void clickMenu(View view) {
+    public void clickBorder(View view) {
         switch (view.getId()){
-            case R.id.oneUser:
-                Toast.makeText(getApplicationContext(),"Jeden gracz",Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(this,ArenaGame.class);
-                startActivity(intent);
-                break;
-            case R.id.twoUser:
-                Toast.makeText(getApplicationContext(),"dwoch graczy",Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.newUse:
-                Toast.makeText(getApplicationContext(),"nowyGracz",Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.statistic:
-                Toast.makeText(getApplicationContext(),"Statystyki",Toast.LENGTH_SHORT).show();
-                break;
+
+
+
+
 
 
 
 
         }
-
 
     }
 }
