@@ -40,6 +40,7 @@ public class ArenaGame extends Activity {
 
     public void clickBorder(View view) {
         switch (view.getId()){
+            // obs³uga
 
 
 
