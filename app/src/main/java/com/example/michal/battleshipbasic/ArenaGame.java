@@ -1,6 +1,8 @@
 package com.example.michal.battleshipbasic;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.os.Build;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,8 +11,12 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import java.util.Random;
+
 
 public class ArenaGame extends Activity {
+
+    String obiekt = "a3";
 
 
     @Override
@@ -41,16 +47,51 @@ public class ArenaGame extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public void clickBorder(View view) {
-        //switch (view.getId()){
-
-        int butonClick = view.getId();
-        String s = String.valueOf(butonClick);
-
-        Toast.makeText(getApplicationContext(),s,Toast.LENGTH_SHORT).show();
-        ImageButton im = (ImageButton)findViewById(R.id.)
-
-        //}
+        //int butonClick = view.getId();
+        //String s = String.valueOf(butonClick);
+        //Toast.makeText(getApplicationContext(),s,Toast.LENGTH_SHORT).show();
+        //ImageButton im = (ImageButton)findViewById(butonClick);
+        //im.setImageResource(R.drawable.test);
+        //String s = im.getResources().getResourceEntryName(butonClick);;
+        //Toast.makeText(getApplicationContext(),s,Toast.LENGTH_SHORT).show();
+        test(view);
 
     }
+
+    public void test(View view){
+        ImageButton im = (ImageButton)findViewById(view.getId());
+        String name = im.getResources().getResourceEntryName(view.getId());;
+        if(obiekt.equals(name)){
+            im.setImageResource(R.drawable.test);
+            Toast.makeText(getApplicationContext(),"YOU HIT",Toast.LENGTH_SHORT).show();
+        }else if(!obiekt.equals(name)){
+            im.setImageResource(R.drawable.testdwa);
+            //Toast.makeText(getApplicationContext(),"YOU MISS" ,Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    public void losowanie(){
+        int rowLos;
+        int colLos;
+        Random rand = new Random();
+        rowLos = rand.nextInt(11);
+        colLos = rand.nextInt(11);
+        String kur = "";
+        for(char r='a';r<'j';r++){
+            if(kur = r[rowLos];){
+
+            }
+
+        }
+        Toast.makeText(getApplicationContext(),kur ,Toast.LENGTH_SHORT).show();
+
+
+
+    }
+
+
 }
+
