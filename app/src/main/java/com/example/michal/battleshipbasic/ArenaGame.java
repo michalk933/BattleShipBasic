@@ -16,13 +16,19 @@ import java.util.Random;
 
 public class ArenaGame extends Activity {
 
-    String obiekt = "a3";
 
+    Ship ship;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_arena_game);
+
+        //losowanie();
+        String[]locationShip = {losowanie(),losowanie(),losowanie()};
+        ship = new Ship(3, locationShip);
+
+
     }
 
     @Override
@@ -56,41 +62,55 @@ public class ArenaGame extends Activity {
         //im.setImageResource(R.drawable.test);
         //String s = im.getResources().getResourceEntryName(butonClick);;
         //Toast.makeText(getApplicationContext(),s,Toast.LENGTH_SHORT).show();
-        test(view);
+        aim(view);
 
     }
 
-    public void test(View view){
+    public void aim(View view){
         ImageButton im = (ImageButton)findViewById(view.getId());
         String name = im.getResources().getResourceEntryName(view.getId());;
-        if(obiekt.equals(name)){
+        hitOrMiss(name);
+        if(ship.getLocationShip().equals(name)){
             im.setImageResource(R.drawable.test);
             Toast.makeText(getApplicationContext(),"YOU HIT",Toast.LENGTH_SHORT).show();
-        }else if(!obiekt.equals(name)){
+        }else if(!ship.getLocationShip().equals(name)){
             im.setImageResource(R.drawable.testdwa);
-            //Toast.makeText(getApplicationContext(),"YOU MISS" ,Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"YOU MISS" ,Toast.LENGTH_SHORT).show();
         }
 
     }
 
-    public void losowanie(){
-        int rowLos;
-        int colLos;
+    public String losowanie(){
         Random rand = new Random();
-        rowLos = rand.nextInt(11);
-        colLos = rand.nextInt(11);
-        String kur = "";
-        for(char r='a';r<'j';r++){
-            if(kur = r[rowLos];){
+        int rowLos = rand.nextInt(10-1+1)+1;
+        int colLos = rand.nextInt(10-1+1)+1;;
 
+        String colLosString = "";
+        int licznik = 1;
+
+        for(char r='a';r<'k';r++){
+            if(colLos == licznik){
+                colLosString = String.valueOf(r);
             }
-
+            licznik++;
         }
-        Toast.makeText(getApplicationContext(),kur ,Toast.LENGTH_SHORT).show();
 
+        Toast.makeText(getApplicationContext(),colLosString +" / "+ String.valueOf(colLos)+ " | "+String.valueOf(rowLos) ,Toast.LENGTH_SHORT).show();
+        return String.valueOf(colLosString) + String.valueOf(rowLos);
 
 
     }
+
+    public boolean hitOrMiss(String position){
+        for(int i=0 ; i<ship.getSizeShip() ; i++){
+            if(position.equals(ship.getLocationShip()[i])){
+                Toast.makeText(getApplicationContext(),"czy to to" +ship.getLocationShip()[i] ,Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 
 }
