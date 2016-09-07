@@ -39,7 +39,7 @@ public class MainActivity extends Activity {
                 Intent intent = new Intent(getApplicationContext(),MainMenu.class);
                 startActivity(intent);
             }
-        }, 3000);
+        }, 2000);
 
     }
 

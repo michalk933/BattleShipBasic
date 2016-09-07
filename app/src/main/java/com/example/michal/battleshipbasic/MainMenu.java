@@ -43,7 +43,7 @@ public class MainMenu extends Activity {
     public void clickMenu(View view) {
         switch (view.getId()){
             case R.id.oneUser:
-                Toast.makeText(getApplicationContext(),"Jeden gracz",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"Jeden gracz",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this,ArenaGame.class);
                 startActivity(intent);
                 break;
