@@ -2,6 +2,7 @@ package com.example.michal.battleshipbasic;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,22 +15,14 @@ import java.util.Random;
 
 
 public class ArenaGame extends Activity {
-
-
-    Ship ship;
+    logicGame logic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_arena_game);
 
-
-        String[]locationShip = losowanie(3);
-        ship = new Ship(3, locationShip);
-
-        String[]locationShipDwa = losowanie(5);
-        ship = new Ship(5, locationShipDwa);
-
+        logic = new logicGame();
 
     }
 
@@ -57,86 +50,21 @@ public class ArenaGame extends Activity {
     // OnClick
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public void clickBorder(View view) {
-        aim(view);
+        Shut(view);
     }
 
-    // This method gives information about the shot
-    ////Is it aim in obiective
-    public void aim(View view){
+    public void Shut(View view){
         ImageButton im = (ImageButton)findViewById(view.getId());
-        String name = im.getResources().getResourceEntryName(view.getId());;
+        String name = im.getResources().getResourceEntryName(view.getId());
+        boolean hitOrMiss = logicGame.HitOsMiss(name);
 
-        if(hitOrMiss(name) == true){
-            if(ship.sethitShip(name))Toast.makeText(getApplicationContext(),"Zniszczyles statek",Toast.LENGTH_SHORT).show();
+        if(hitOrMiss == true){
             im.setImageResource(R.drawable.shipborder);
-            Toast.makeText(getApplicationContext(),"YOU HIT",Toast.LENGTH_SHORT).show();
-        }else if(hitOrMiss(name) == false){
+            Toast.makeText(getApplicationContext(), "YOU HIT", Toast.LENGTH_SHORT).show();
+        }else if(hitOrMiss == false){
             im.setImageResource(R.drawable.miss);
             Toast.makeText(getApplicationContext(),"YOU MISS" ,Toast.LENGTH_SHORT).show();
         }
-
     }
-
-    //Methods random location for ship
-    ////
-    public String[] losowanie(int sizeShip){
-
-        Random rand = new Random();
-        int orientation = rand.nextInt(2-1+1)+1;
-        int col=0;
-        int row=0;
-        String kolekcja[] = new String[sizeShip];
-        if(orientation == 1){
-            col = rand.nextInt(10-1+1)+1;
-            row = rand.nextInt((10-sizeShip)-1+1)+1;
-
-            for(int i=0; i<sizeShip; i++){
-                kolekcja[i] = String.valueOf(changeNumericAlphanumeric(col)) + String.valueOf(row++);
-                Toast.makeText(getApplicationContext(),kolekcja[i],Toast.LENGTH_SHORT).show();
-            }
-
-
-        }else if(orientation == 2){
-            col = rand.nextInt((10-sizeShip)-1+1)+1;
-            row = rand.nextInt(10-1+1)+1;
-
-            for(int i=0; i<sizeShip; i++){
-                kolekcja[i] = String.valueOf(changeNumericAlphanumeric(col++)) + String.valueOf(row);
-                Toast.makeText(getApplicationContext(),kolekcja[i],Toast.LENGTH_SHORT).show();
-            }
-        }
-
-        return kolekcja;
-    }
-
-
-    //HIT or MISS
-    public boolean hitOrMiss(String position){
-        for(int i=0 ; i<ship.getSizeShip() ; i++){
-            if(position.equals(ship.getLocationShip()[i])){
-                //Toast.makeText(getApplicationContext(),"czy to to" +ship.getLocationShip()[i] ,Toast.LENGTH_SHORT).show();
-                return true;
-            }
-        }
-        return false;
-    }
-
-
-    //Methot changes number in alphanumeric
-    public String changeNumericAlphanumeric(int num){
-
-        String colLosString = "";
-        int licznik = 1;
-
-        for(char r='a';r<'k';r++){
-            if(num == licznik){
-                colLosString = String.valueOf(r);
-            }
-            licznik++;
-        }
-        return colLosString;
-    }
-
-
 }
 
