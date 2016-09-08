@@ -21,6 +21,8 @@ public class logicGame {
         for(int j =0; j<=2; j++) {
             for (int i = 0; i < lista[j].getSizeShip(); i++) {
                 if (location.equals(lista[j].getLocationShip()[i])) {
+                    lista[j].sethitShip(location);
+                    //finish();
                     return true;
                 }
             }
@@ -72,6 +74,16 @@ public class logicGame {
         }
         return colLosString;
     }
+
+    public static boolean finish(){
+        boolean finishOrNot = false;
+        for(int i=0; i<2; i++){
+            if(finishOrNot = lista[i].isfinish())finishOrNot = true;
+        }
+        return finishOrNot;
+    }
+
+
 
 
 }

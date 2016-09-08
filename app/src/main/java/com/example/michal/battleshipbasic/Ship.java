@@ -20,7 +20,7 @@ public class Ship {
     public String[] getLocationShip(){
         return this.location;
     }
-    public boolean sethitShip(String locationHitShip){
+    public boolean sethitShip(String locationHitShip) {
 
         if(licznik == this.size){
             return true;
@@ -31,13 +31,17 @@ public class Ship {
         return false;
     }
 
+    public boolean isfinish(){
+        boolean flags = false;
+        for(int i=0; i<=this.size;i++){
+            if(location[i] == hitShip[i]){
+                flags = true;
+            }else flags = false;
 
-    //public void getScoreHit(){
 
-
-
-
-    //}
+        }
+        return flags;
+    }
 
 
 
